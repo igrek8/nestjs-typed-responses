@@ -1,6 +1,7 @@
 import {
   BadRequestException,
   Body,
+  ConsoleLogger,
   Controller,
   HttpException,
   HttpStatus,
@@ -56,8 +57,6 @@ class TestController {
 describe('TypedResponseModule', () => {
   let app: INestApplication;
 
-  const errorCallback = jest.fn();
-
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
       providers: [
@@ -69,8 +68,15 @@ describe('TypedResponseModule', () => {
         },
       ],
       imports: [
-        TypedResponseModule.register({
-          error: errorCallback,
+        TypedResponseModule.registerAsync({
+          inject: ['APP_LOGGER'],
+          provideInjectionTokensFrom: [
+            {
+              provide: 'APP_LOGGER',
+              useClass: ConsoleLogger,
+            },
+          ],
+          useFactory: () => ({}),
         }),
       ],
       controllers: [TestController],
@@ -112,12 +118,14 @@ describe('TypedResponseModule', () => {
   });
 
   it('serializes generic error and logs it', async () => {
+    const log = jest.spyOn(ConsoleLogger.prototype, 'error');
+    log.mockImplementation(() => {});
     const error = new Error('Some error');
     createResponse.mockImplementation(() => {
       throw error;
     });
     const res = await request(app.getHttpServer()).post('/').send({ message: 'ping' });
     expect(res.body).toMatchObject({ __type: 'InternalServerErrorException', message: 'Internal server error' });
-    expect(errorCallback).toHaveBeenCalledWith(error);
+    expect(log).toHaveBeenCalledWith(error.message, error.stack, 'ExceptionFilter');
   });
 });

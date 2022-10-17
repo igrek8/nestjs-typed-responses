@@ -22,7 +22,7 @@ yarn add nestjs-typed-responses
 ## Usage
 
 ```ts
-import { Controller, HttpCode, HttpStatus, Module, Post, ValidationPipe } from '@nestjs/common';
+import { ConsoleLogger, Controller, HttpCode, HttpStatus, Module, Post, ValidationPipe } from '@nestjs/common';
 import { APP_PIPE, NestFactory } from '@nestjs/core';
 import {
   ApiBadRequestResponse,
@@ -96,12 +96,22 @@ class AppController {
     {
       provide: APP_PIPE,
       useValue: new ValidationPipe({
-        // use exception factory from the typed validation exception
         exceptionFactory: ValidationException.exceptionFactory,
       }),
     },
   ],
-  imports: [TypedResponseModule.register({})],
+  imports: [
+    TypedResponseModule.registerAsync({
+      inject: ['APP_LOGGER'],
+      provideInjectionTokensFrom: [
+        {
+          provide: 'APP_LOGGER',
+          useClass: ConsoleLogger,
+        },
+      ],
+      useFactory: () => ({}),
+    }),
+  ],
   controllers: [AppController],
 })
 class AppModule {}
