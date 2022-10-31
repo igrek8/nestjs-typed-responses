@@ -1,5 +1,4 @@
 import {
-  BadRequestException,
   Body,
   ConsoleLogger,
   Controller,
@@ -15,6 +14,7 @@ import { Test } from '@nestjs/testing';
 import { IsString } from 'class-validator';
 import request from 'supertest';
 import { ApiTypeMetafield } from './api-type-metafield.decorator';
+import { BadRequestException } from './exceptions';
 import { TypedDataTransferObject } from './typed-data-transfer-object';
 import { TypedResponseModule } from './typed-responses.module';
 import { ValidationException } from './validation-exception';

@@ -10,16 +10,9 @@ import {
 import { HttpAdapterHost } from '@nestjs/core';
 import { ClassTransformOptions, instanceToPlain } from 'class-transformer';
 import { Response } from 'express';
-import { HttpException } from './exceptions';
+import { HttpException, InternalServerErrorException } from './exceptions';
+import { isErrorResponse } from './is-error-response';
 import { MODULE_OPTIONS_TOKEN, OPTIONS_TYPE } from './typed-response.module-definition';
-
-function hasMessage(obj: unknown): obj is { message: string } {
-  return obj !== null && typeof obj === 'object' && typeof (obj as Record<string, unknown>)['message'] === 'string';
-}
-
-const transformErrorOptions: ClassTransformOptions = {
-  strategy: 'excludeAll',
-};
 
 @Catch()
 export class ExceptionFilter implements IExceptionFilter {
@@ -29,36 +22,49 @@ export class ExceptionFilter implements IExceptionFilter {
     @Inject('APP_LOGGER') protected readonly logger: LoggerService
   ) {}
 
+  protected static readonly defaultTransformError = () => {
+    return new InternalServerErrorException();
+  };
+
+  protected static readonly defaultTransformErrorOptions: ClassTransformOptions = {
+    strategy: 'excludeAll',
+  };
+
   catch(error: unknown, host: ArgumentsHost) {
-    const { httpAdapter } = this.httpAdapterHost;
     const ctx = host.switchToHttp();
     const res = ctx.getResponse<Response>();
 
-    let status = HttpStatus.INTERNAL_SERVER_ERROR;
-    let payload: Record<string, unknown> | undefined;
+    const { transformError = ExceptionFilter.defaultTransformError } = this.options;
+
+    const transformErrorOptions = {
+      ...ExceptionFilter.defaultTransformErrorOptions,
+      ...this.options.transformErrorOptions,
+    };
+
+    let httpStatus: HttpStatus;
+    let httpResponseBody: Record<string, unknown> | undefined;
 
     if (error instanceof HttpException) {
-      status = error.getStatus();
-      payload = instanceToPlain(error, { ...transformErrorOptions, ...this.options.transformErrorOptions });
+      httpStatus = error.getStatus();
+      httpResponseBody = instanceToPlain(error, transformErrorOptions);
     } else if (error instanceof BaseHttpException) {
-      status = error.getStatus();
-      payload = { __type: error.name };
+      httpStatus = error.getStatus();
+      httpResponseBody = { __type: error.name };
       const response = error.getResponse();
       if (typeof response === 'string') {
-        payload['message'] = response;
-      } else if (hasMessage(response)) {
-        payload['message'] = response['message'];
+        httpResponseBody['message'] = response;
+      } else if (isErrorResponse(response)) {
+        httpResponseBody['message'] = response['message'];
       }
     } else {
-      payload = {
-        __type: 'InternalServerErrorException',
-        message: 'Internal server error',
-      };
       if (error instanceof Error) {
         this.logger.error(error.message, error.stack, 'ExceptionFilter');
       }
+      const httpException = transformError(error);
+      httpStatus = httpException.getStatus();
+      httpResponseBody = instanceToPlain(httpException, transformErrorOptions);
     }
 
-    httpAdapter.reply(res, payload, status);
+    this.httpAdapterHost.httpAdapter.reply(res, httpResponseBody, httpStatus);
   }
 }
