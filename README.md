@@ -3,7 +3,7 @@
 Enables OpenAPI v3 polymorphism using `__type` metafield to resolve different exceptions or responses within the same HTTP code response group.
 
 [![NPM](https://badgen.net/npm/v/nestjs-typed-responses)](https://www.npmjs.com/nestjs-typed-responses)
-[![Health](https://coveralls.io/repos/github/igrek8/nestjs-typed-responses/badge.svg?branch=main)](https://coveralls.io/github/igrek8/nestjs-typed-responses?branch=main)
+[![Coverage](https://codecov.io/gh/igrek8/nestjs-typed-responses/branch/main/graph/badge.svg)](https://codecov.io/gh/igrek8/nestjs-typed-responses)
 ![Release](https://badgen.net/github/checks/igrek8/nestjs-typed-responses)
 ![License](https://badgen.net/github/license/igrek8/nestjs-typed-responses)
 
@@ -17,7 +17,7 @@ yarn add nestjs-typed-responses
 
 ## OpenAPI
 
-![Swagger](./docs/images/swagger.png)
+![Swagger](./media/swagger.png)
 
 ## Usage
 

@@ -12,7 +12,7 @@ import { APP_PIPE } from '@nestjs/core';
 import { ApiBadRequestResponse, ApiCreatedResponse } from '@nestjs/swagger';
 import { Test } from '@nestjs/testing';
 import { IsString } from 'class-validator';
-import request from 'supertest';
+import * as request from 'supertest';
 import { ApiTypeMetafield } from './api-type-metafield.decorator';
 import { BadRequestException } from './exceptions';
 import { TypedDataTransferObject } from './typed-data-transfer-object';
