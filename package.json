@@ -75,7 +75,7 @@
   "dependencies": {
     "tslib": "^2",
     "class-transformer": "^0.5",
-    "class-validator": "^0.13"
+    "class-validator": "^0.14"
   },
   "peerDependencies": {
     "@nestjs/common": "^9",
