@@ -75,7 +75,7 @@
 
 #### Defined in
 
-[src/exceptions.ts:13](https://github.com/igrek8/nestjs-typed-responses/blob/8ebe021/src/exceptions.ts#L13)
+[src/exceptions.ts:13](https://github.com/igrek8/nestjs-typed-responses/blob/84f62b4/src/exceptions.ts#L13)
 
 ___
 
@@ -89,7 +89,7 @@ BaseHttpException.message
 
 #### Defined in
 
-[src/exceptions.ts:16](https://github.com/igrek8/nestjs-typed-responses/blob/8ebe021/src/exceptions.ts#L16)
+[src/exceptions.ts:16](https://github.com/igrek8/nestjs-typed-responses/blob/84f62b4/src/exceptions.ts#L16)
 
 ## Constructors
 
@@ -110,4 +110,4 @@ BaseHttpException.constructor
 
 #### Defined in
 
-[src/exceptions.ts:18](https://github.com/igrek8/nestjs-typed-responses/blob/8ebe021/src/exceptions.ts#L18)
+[src/exceptions.ts:18](https://github.com/igrek8/nestjs-typed-responses/blob/84f62b4/src/exceptions.ts#L18)
