@@ -41,7 +41,7 @@ node_modules/@nestjs/common/module-utils/interfaces/configurable-module-cls.inte
 
 ### register
 
-▪ `Static` **register**: (`options`: `TypedResponseModuleOptions` & `Partial`<{}\>) => `DynamicModule`
+▪ `Static` **register**: (`options`: [`TypedResponseModuleOptions`](../interfaces/TypedResponseModuleOptions.md) & `Partial`<{}\>) => `DynamicModule`
 
 #### Type declaration
 
@@ -51,7 +51,7 @@ node_modules/@nestjs/common/module-utils/interfaces/configurable-module-cls.inte
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `TypedResponseModuleOptions` & `Partial`<{}\> |
+| `options` | [`TypedResponseModuleOptions`](../interfaces/TypedResponseModuleOptions.md) & `Partial`<{}\> |
 
 ##### Returns
 
@@ -65,7 +65,7 @@ ___
 
 ### registerAsync
 
-▪ `Static` **registerAsync**: (`options`: `ConfigurableModuleAsyncOptions`<`TypedResponseModuleOptions`, ``"create"``\> & `Partial`<{}\>) => `DynamicModule`
+▪ `Static` **registerAsync**: (`options`: `ConfigurableModuleAsyncOptions`<[`TypedResponseModuleOptions`](../interfaces/TypedResponseModuleOptions.md), ``"create"``\> & `Partial`<{}\>) => `DynamicModule`
 
 #### Type declaration
 
@@ -75,7 +75,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `ConfigurableModuleAsyncOptions`<`TypedResponseModuleOptions`, ``"create"``\> & `Partial`<{}\> |
+| `options` | `ConfigurableModuleAsyncOptions`<[`TypedResponseModuleOptions`](../interfaces/TypedResponseModuleOptions.md), ``"create"``\> & `Partial`<{}\> |
 
 ##### Returns
 
