@@ -1,7 +1,6 @@
 {
   "name": "nestjs-typed-responses",
   "version": "0.0.0",
-  "private": false,
   "license": "MIT",
   "author": "Igor Korchagin (https://github.com/igrek8)",
   "keywords": [
@@ -23,64 +22,72 @@
   "files": [
     "./dist"
   ],
-  "scripts": {
-    "prepare": "husky install",
-    "clean": "rimraf ./dist",
-    "test": "jest",
-    "compile": "tsc --project ./tsconfig.build.json",
-    "build": "npm run clean && npm run compile",
-    "lint": "eslint \"**/*\"",
-    "format": "prettier --check \"**/*\"",
-    "docs:build": "typedoc --out ./docs",
-    "docs:publish": "cp ./public/index.html ./docs/index.html && gh-pages --dist ./docs",
-    "docs": "npm run docs:build && npm run docs:publish",
-    "watch": "tsc --watch --project ./tsconfig.build.json",
-    "start": "npm start --prefix ./demo"
+  "prettier": "@igrek8/prettier",
+  "publishConfig": {
+    "access": "public"
   },
-  "devDependencies": {
-    "@commitlint/cli": "^17.2.0",
-    "@commitlint/config-conventional": "^17.2.0",
-    "@semantic-release/commit-analyzer": "^9.0.2",
-    "@semantic-release/github": "^8.0.6",
-    "@semantic-release/npm": "^9.0.1",
-    "@semantic-release/release-notes-generator": "^10.0.3",
-    "@types/jest": "^29.0.3",
-    "@types/node": "^16.11.59",
-    "@typescript-eslint/eslint-plugin": "^5.38.0",
-    "@typescript-eslint/parser": "^5.38.0",
-    "eslint": "^8.23.1",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "gh-pages": "^4.0.0",
-    "husky": "^8.0.1",
-    "jest": "^29.0.3",
-    "prettier": "^2.7.1",
-    "rimraf": "^3.0.2",
-    "semantic-release": "^19.0.5",
-    "ts-jest": "^29.0.1",
-    "ts-node": "^10.9.1",
-    "typedoc": "^0.23.20",
-    "typedoc-plugin-markdown": "^3.13.6",
-    "typescript": "^4.8.3",
-    "@nestjs/common": "^9",
-    "@nestjs/core": "^9",
-    "@nestjs/platform-express": "^9",
-    "@nestjs/swagger": "^6.1.2",
-    "@nestjs/testing": "^9.1.2",
-    "@types/express": "^4.17.13",
-    "@types/supertest": "^2.0.12",
-    "supertest": "^6.2.4",
-    "utility-types": "^3.10.0"
+  "release": {
+    "extends": "@igrek8/semantic-release"
+  },
+  "jest": {
+    "preset": "@igrek8/jest",
+    "rootDir": "src"
+  },
+  "eslintConfig": {
+    "extends": "@igrek8/eslint-config",
+    "env": {
+      "node": true
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "dependencies": {
     "tslib": "^2",
-    "class-transformer": "^0.5",
-    "class-validator": "^0.14"
+    "class-transformer": "^0",
+    "class-validator": "^0"
   },
   "peerDependencies": {
     "@nestjs/common": "^9",
     "@nestjs/core": "^9",
     "@nestjs/platform-express": "^9",
     "@nestjs/swagger": "^6"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "test": "jest",
+    "compile": "tsc -p tsconfig.build.json",
+    "build": "npm run clean && npm run compile",
+    "lint": "eslint \"**/*\"",
+    "format": "prettier --check \"**/*\"",
+    "docs": "typedoc build -o docs && typedoc publish -o docs"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.4.4",
+    "@commitlint/config-conventional": "17.4.4",
+    "@igrek8/eslint-config": "1.0.6",
+    "@igrek8/jest": "1.0.1",
+    "@igrek8/prettier": "1.0.1",
+    "@igrek8/semantic-release": "1.0.2",
+    "@igrek8/typescript": "1.0.1",
+    "@igrek8/typedoc": "1.0.1",
+    "@types/node": "18.14.2",
+    "husky": "8.0.3",
+    "rimraf": "4.1.2",
+    "ts-node": "10.9.1",
+    "@nestjs/common": "9.3.9",
+    "@nestjs/core": "9.3.9",
+    "@nestjs/platform-express": "9.3.9",
+    "@nestjs/swagger": "6.2.1",
+    "@nestjs/testing": "9.3.9",
+    "@types/express": "4.17.17",
+    "@types/supertest": "2.0.12",
+    "supertest": "6.3.3",
+    "utility-types": "3.10.0",
+    "tslib": "2.5.0",
+    "class-transformer": "0.5.1",
+    "class-validator": "0.14.0"
   }
 }
