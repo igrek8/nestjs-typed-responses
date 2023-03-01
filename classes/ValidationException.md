@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[src/validation-exception.ts:11](https://github.com/igrek8/nestjs-typed-responses/blob/cc7b0a6/src/validation-exception.ts#L11)
+[src/validation-exception.ts:11](https://github.com/igrek8/nestjs-typed-responses/blob/c965990/src/validation-exception.ts#L11)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[src/exceptions.ts:28](https://github.com/igrek8/nestjs-typed-responses/blob/cc7b0a6/src/exceptions.ts#L28)
+[src/exceptions.ts:28](https://github.com/igrek8/nestjs-typed-responses/blob/c965990/src/exceptions.ts#L28)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[src/validation-exception.ts:17](https://github.com/igrek8/nestjs-typed-responses/blob/cc7b0a6/src/validation-exception.ts#L17)
+[src/validation-exception.ts:17](https://github.com/igrek8/nestjs-typed-responses/blob/c965990/src/validation-exception.ts#L17)
 
 ## Constructors
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[src/validation-exception.ts:19](https://github.com/igrek8/nestjs-typed-responses/blob/cc7b0a6/src/validation-exception.ts#L19)
+[src/validation-exception.ts:19](https://github.com/igrek8/nestjs-typed-responses/blob/c965990/src/validation-exception.ts#L19)
 
 ## Methods
 
@@ -100,4 +100,4 @@ ___
 
 #### Defined in
 
-[src/validation-exception.ts:24](https://github.com/igrek8/nestjs-typed-responses/blob/cc7b0a6/src/validation-exception.ts#L24)
+[src/validation-exception.ts:24](https://github.com/igrek8/nestjs-typed-responses/blob/c965990/src/validation-exception.ts#L24)
