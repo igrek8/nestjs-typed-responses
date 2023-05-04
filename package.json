@@ -65,7 +65,7 @@
     "docs": "typedoc build -o docs && typedoc publish -o docs"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.6.1",
+    "@commitlint/cli": "17.6.3",
     "@commitlint/config-conventional": "17.6.1",
     "@igrek8/eslint-config": "1.0.6",
     "@igrek8/jest-preset": "1.0.11",
