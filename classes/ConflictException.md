@@ -39,7 +39,7 @@
 
 #### Defined in
 
-[src/exceptions.ts:97](https://github.com/igrek8/nestjs-typed-responses/blob/c965990/src/exceptions.ts#L97)
+[src/exceptions.ts:97](https://github.com/igrek8/nestjs-typed-responses/blob/9265976/src/exceptions.ts#L97)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[src/exceptions.ts:100](https://github.com/igrek8/nestjs-typed-responses/blob/c965990/src/exceptions.ts#L100)
+[src/exceptions.ts:100](https://github.com/igrek8/nestjs-typed-responses/blob/9265976/src/exceptions.ts#L100)
 
 ## Constructors
 
@@ -73,4 +73,4 @@ ___
 
 #### Defined in
 
-[src/exceptions.ts:102](https://github.com/igrek8/nestjs-typed-responses/blob/c965990/src/exceptions.ts#L102)
+[src/exceptions.ts:102](https://github.com/igrek8/nestjs-typed-responses/blob/9265976/src/exceptions.ts#L102)

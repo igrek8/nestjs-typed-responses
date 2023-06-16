@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[src/typed-response.module-options.ts:5](https://github.com/igrek8/nestjs-typed-responses/blob/c965990/src/typed-response.module-options.ts#L5)
+[src/typed-response.module-options.ts:5](https://github.com/igrek8/nestjs-typed-responses/blob/9265976/src/typed-response.module-options.ts#L5)
 
 ## Properties
 
@@ -40,4 +40,4 @@
 
 #### Defined in
 
-[src/typed-response.module-options.ts:6](https://github.com/igrek8/nestjs-typed-responses/blob/c965990/src/typed-response.module-options.ts#L6)
+[src/typed-response.module-options.ts:6](https://github.com/igrek8/nestjs-typed-responses/blob/9265976/src/typed-response.module-options.ts#L6)
