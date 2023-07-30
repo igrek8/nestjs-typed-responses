@@ -85,7 +85,7 @@ Useful to build new decorators (or a decorator factory) encapsulating multiple d
 
 #### Defined in
 
-[src/api-type-metafield.decorator.ts:8](https://github.com/igrek8/nestjs-typed-responses/blob/f5d28a2/src/api-type-metafield.decorator.ts#L8)
+[src/api-type-metafield.decorator.ts:8](https://github.com/igrek8/nestjs-typed-responses/blob/a6709d2/src/api-type-metafield.decorator.ts#L8)
 
 ___
 
@@ -105,4 +105,4 @@ ___
 
 #### Defined in
 
-[src/collect-validation-errors.ts:14](https://github.com/igrek8/nestjs-typed-responses/blob/f5d28a2/src/collect-validation-errors.ts#L14)
+[src/collect-validation-errors.ts:14](https://github.com/igrek8/nestjs-typed-responses/blob/a6709d2/src/collect-validation-errors.ts#L14)

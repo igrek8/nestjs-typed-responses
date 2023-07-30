@@ -40,4 +40,4 @@
 
 #### Defined in
 
-[src/typed-data-transfer-object.ts:2](https://github.com/igrek8/nestjs-typed-responses/blob/f5d28a2/src/typed-data-transfer-object.ts#L2)
+[src/typed-data-transfer-object.ts:2](https://github.com/igrek8/nestjs-typed-responses/blob/a6709d2/src/typed-data-transfer-object.ts#L2)
