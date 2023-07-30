@@ -100,18 +100,7 @@ class AppController {
       }),
     },
   ],
-  imports: [
-    TypedResponseModule.registerAsync({
-      inject: ['APP_LOGGER'],
-      provideInjectionTokensFrom: [
-        {
-          provide: 'APP_LOGGER',
-          useClass: ConsoleLogger,
-        },
-      ],
-      useFactory: () => ({}),
-    }),
-  ],
+  imports: [TypedResponseModule],
   controllers: [AppController],
 })
 class AppModule {}

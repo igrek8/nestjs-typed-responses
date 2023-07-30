@@ -67,18 +67,7 @@ describe('TypedResponseModule', () => {
           }),
         },
       ],
-      imports: [
-        TypedResponseModule.registerAsync({
-          inject: ['APP_LOGGER'],
-          provideInjectionTokensFrom: [
-            {
-              provide: 'APP_LOGGER',
-              useClass: ConsoleLogger,
-            },
-          ],
-          useFactory: () => ({}),
-        }),
-      ],
+      imports: [TypedResponseModule],
       controllers: [TestController],
     }).compile();
     app = moduleRef.createNestApplication();

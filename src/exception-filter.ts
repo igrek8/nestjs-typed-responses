@@ -1,11 +1,12 @@
 import {
   ArgumentsHost,
-  Catch,
-  ExceptionFilter as IExceptionFilter,
   HttpException as BaseHttpException,
+  Catch,
   HttpStatus,
+  ExceptionFilter as IExceptionFilter,
   Inject,
-  LoggerService,
+  Logger,
+  Optional,
 } from '@nestjs/common';
 import { HttpAdapterHost } from '@nestjs/core';
 import { ClassTransformOptions, instanceToPlain } from 'class-transformer';
@@ -16,10 +17,13 @@ import { MODULE_OPTIONS_TOKEN, OPTIONS_TYPE } from './typed-response.module-defi
 
 @Catch()
 export class ExceptionFilter implements IExceptionFilter {
+  protected readonly logger = new Logger(ExceptionFilter.name);
+
   constructor(
     protected readonly httpAdapterHost: HttpAdapterHost,
-    @Inject(MODULE_OPTIONS_TOKEN) protected readonly options: typeof OPTIONS_TYPE,
-    @Inject('APP_LOGGER') protected readonly logger: LoggerService
+    @Optional()
+    @Inject(MODULE_OPTIONS_TOKEN)
+    protected readonly options: typeof OPTIONS_TYPE = {}
   ) {}
 
   protected static readonly defaultTransformError = () => {
@@ -58,7 +62,7 @@ export class ExceptionFilter implements IExceptionFilter {
       }
     } else {
       if (error instanceof Error) {
-        this.logger.error(error.message, error.stack, 'ExceptionFilter');
+        this.logger.error(error.message, error.stack);
       }
       const httpException = transformError(error);
       httpStatus = httpException.getStatus();

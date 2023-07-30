@@ -1,4 +1,4 @@
-import { ConsoleLogger, Controller, HttpCode, HttpStatus, Module, Post, ValidationPipe } from '@nestjs/common';
+import { Controller, HttpCode, HttpStatus, Module, Post, ValidationPipe } from '@nestjs/common';
 import { APP_PIPE, NestFactory } from '@nestjs/core';
 import {
   ApiExtraModels,
@@ -72,18 +72,7 @@ class AppController {
       }),
     },
   ],
-  imports: [
-    TypedResponseModule.registerAsync({
-      inject: ['APP_LOGGER'],
-      provideInjectionTokensFrom: [
-        {
-          provide: 'APP_LOGGER',
-          useClass: ConsoleLogger,
-        },
-      ],
-      useFactory: () => ({}),
-    }),
-  ],
+  imports: [TypedResponseModule],
   controllers: [AppController],
 })
 class AppModule {}
